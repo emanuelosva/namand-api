@@ -1,0 +1,143 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-ts"
+}
+
+model Business {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  slug      String   @unique
+  currency  String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  authentication Authentication?
+  staffs         Staff[]
+}
+
+model Authentication {
+  id  String @id @default(uuid())
+  key String @unique
+
+  // Relations
+  businessId String   @unique
+  business   Business @relation(fields: [businessId], references: [id])
+}
+
+model Staff {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  lastName    String
+  email       String
+  phone       String
+  countryCode String?
+  password    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  businessId String
+  business   Business  @relation(fields: [businessId], references: [id])
+  services   Service[]
+
+  // Constrains
+  @@unique([businessId, email])
+}
+
+model Service {
+  id         String   @id @default(uuid())
+  name       String
+  duration   Int
+  priceLocal Int
+  proceUSD   Int      @default(-1)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  staffId String
+  staff   Staff  @relation(fields: [staffId], references: [id])
+}
+
+model TimeOff {
+  id        String   @id @default(uuid())
+  staffId   String
+  startTime DateTime
+  endTime   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Agenda {
+  id                    String    @id @default(uuid())
+  staffId               String
+  timezone              DateTime
+  slotSize              Int
+  advanceBookingMinutes Int
+  workingPlan           DayPlan[]
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model DayPlan {
+  id        String   @id @default(uuid())
+  dayName   String
+  dayNumber Int
+  active    Boolean  @default(false)
+  startTime String
+  endTime   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  breaks   Break[]
+  agendaId String
+  agenda   Agenda  @relation(fields: [agendaId], references: [id])
+
+  // Constrains
+  @@unique([dayName, agendaId])
+  @@unique([dayNumber, agendaId])
+}
+
+model Break {
+  id        String   @id @default(uuid())
+  dayName   String
+  startTime String
+  endTime   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  dayPlanId String
+  dayPlan   DayPlan @relation(fields: [dayPlanId], references: [id])
+}
+
+model Appointment {
+  id            String    @id @default(uuid())
+  businessId    String
+  customerName  String
+  customerId    String
+  staffName     String
+  staffId       String
+  serviceName   String
+  serviceId     String
+  startTime     DateTime
+  endTime       DateTime
+  timezone      String
+  cost          Int
+  totalPayed    Int
+  currency      String
+  coupon        String?
+  paymentDate   DateTime?
+  active        Boolean   @default(true)
+  cancellReason String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
