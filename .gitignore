@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+*.logs
+
+# Coverage directory used by tools like istanbul
+lib-cov
+coverage
+*.lcov
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+
+# Typescript build
+dist
+**/dist
+
+# Next.js build output
+.next
+out
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
