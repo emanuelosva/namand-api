@@ -1,0 +1,5 @@
+export { makeFindById } from './findById'
+export { makeFindByEmail } from './findByEmail'
+export { makeFindBySlug } from './findBySlug'
+export { makeCreateOne } from './createOne'
+export { makeUpdateOne } from './updateOne'
