@@ -25,6 +25,8 @@ model Business {
 model Authentication {
   id  String @id @default(uuid())
   key String @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   // Relations
   businessId String   @unique

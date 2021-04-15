@@ -14,6 +14,8 @@ CREATE TABLE "Business" (
 CREATE TABLE "Authentication" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "key" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
     "businessId" TEXT NOT NULL,
     FOREIGN KEY ("businessId") REFERENCES "Business" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
