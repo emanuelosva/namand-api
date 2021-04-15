@@ -133,6 +133,9 @@ CREATE UNIQUE INDEX "Authentication.key_unique" ON "Authentication"("key");
 CREATE UNIQUE INDEX "Authentication.businessId_unique" ON "Authentication"("businessId");
 
 -- CreateIndex
+CREATE INDEX "Authentication.key_index" ON "Authentication"("key");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Staff.slug_unique" ON "Staff"("slug");
 
 -- CreateIndex
