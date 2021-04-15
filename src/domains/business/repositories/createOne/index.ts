@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { nanoid } from 'nanoid'
 import { IInputBusiness, IBusiness, makeBusiness } from '../../entities'
 import { BusinessError } from '../../businessError'
 import { errorTypes } from '../../constants'
@@ -8,7 +9,10 @@ export const makeCreateOne = (
   db: PrismaClient,
 ) => async (businessDTO: IInputBusiness): Promise<IBusiness> => {
   try {
-    const cleanBusiness = makeBusiness(businessDTO) as any
+    const cleanBusiness = {
+      ...makeBusiness(businessDTO),
+      id: nanoid(),
+    } as any
 
     const business = await db.business.create({
       data: cleanBusiness,
