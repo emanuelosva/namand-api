@@ -10,12 +10,14 @@
   "scripts": {
     "start": "NODE_ENV=production node dist/index.js",
     "build": "tsc",
+    "prebuild": "npx prisma generate",
     "dev": "NODE_ENV=development node src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint --fix"
   },
   "dependencies": {
+    "@prisma/client": "^2.21.0",
     "bcrypt": "^5.0.1",
     "date-fns": "^2.20.3",
     "dotenv": "^8.2.0",
