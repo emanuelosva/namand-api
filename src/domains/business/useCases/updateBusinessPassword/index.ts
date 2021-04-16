@@ -29,7 +29,7 @@ export const makeUpdateBusinessPassword = ({
   const isPasswordCorrect = await hashComparator(oldPassword, business.password)
   if (!isPasswordCorrect) {
     logger.error(`Error on compare password for business: ${id}`)
-    throw new BusinessError(errorTypes.INVALID_PASSWORD, 401)
+    throw new BusinessError(errorTypes.INVALID_CREDENTIALS, 401)
   }
 
   const password = await hashGenerator(newPassword)
