@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
-import { IUpdateBusiness, IBusiness } from '../../entities'
-import { BusinessError } from '../../businessError'
-import { errorTypes } from '../../constants'
-import logger from 'domains/business/logger'
+import { IUpdateBusiness, IBusiness } from '@business/entities'
+import { BusinessError } from '@business/businessError'
+import { errorTypes } from '@business/constants'
+import logger from '@business/logger'
 
 export const makeUpdateOne = (
   db: PrismaClient,

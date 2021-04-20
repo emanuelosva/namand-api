@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
-import { IBusiness } from '../../entities'
-import { BusinessError } from '../../businessError'
-import { errorTypes } from '../../constants'
-import logger from 'domains/business/logger'
+import { IBusiness } from '@business/entities'
+import { BusinessError } from '@business/businessError'
+import { errorTypes } from '@business/constants'
+import logger from '@business/logger'
 
 export const makeFindBySlug = (
   db: PrismaClient,

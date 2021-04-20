@@ -1,7 +1,7 @@
-import { IBusinessRepository } from '../../entities'
-import { errorTypes } from '../../constants'
-import { BusinessError } from '../../businessError'
-import logger from '../../logger'
+import { IBusinessRepository } from '@business/entities'
+import { errorTypes } from '@business/constants'
+import { BusinessError } from '@business/businessError'
+import logger from '@business/logger'
 
 export const makeFindBusinessById = (
   findBusinessById: IBusinessRepository['findById'],

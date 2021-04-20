@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client'
 import { nanoid } from 'nanoid'
-import { IInputBusiness, IBusiness, makeBusiness } from '../../entities'
-import { BusinessError } from '../../businessError'
-import { errorTypes } from '../../constants'
-import logger from 'domains/business/logger'
+import { IInputBusiness, IBusiness, makeBusiness } from '@business/entities'
+import { BusinessError } from '@business/businessError'
+import { errorTypes } from '@business/constants'
+import logger from '@business/logger'
 
 export const makeCreateOne = (
   db: PrismaClient,

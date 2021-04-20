@@ -1,5 +1,5 @@
-import { BusinessError as BusinessErrorBase } from '../../common'
-import config from './config'
+import { BusinessError as BusinessErrorBase } from '@common/index'
+import config from '@business/config'
 
 export class BusinessError extends BusinessErrorBase {
   constructor(

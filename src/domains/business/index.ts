@@ -1,16 +1,16 @@
-import { db } from '../../infraestructure'
+import { db } from '@infraestructure/index'
 import {
   slugGenerator,
   hashComparator,
   hashGenerator,
-} from '../../common'
+} from '@common/index'
 import {
   makeFindById,
   makeFindBySlug,
   makeFindByEmail,
   makeCreateOne,
   makeUpdateOne,
-} from './repositories'
+} from '@business/repositories'
 import {
   makeFindBusinessById,
   makeFindBusinessByEmail,
@@ -18,7 +18,7 @@ import {
   makeCreateNewBusiness,
   makeUpdateBusiness,
   makeUpdateBusinessPassword,
-} from './useCases'
+} from '@business/useCases'
 
 const businessRepoFindById = makeFindById(db)
 const businessRepoFindBySlug = makeFindBySlug(db)

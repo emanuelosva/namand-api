@@ -1,7 +1,7 @@
-import { IBusinessRepository, IBusiness } from '../../entities'
-import { errorTypes } from '../../constants'
-import { BusinessError } from '../../businessError'
-import logger from '../../logger'
+import { IBusinessRepository, IBusiness } from '@business/entities'
+import { errorTypes } from '@business/constants'
+import { BusinessError } from '@business/businessError'
+import logger from '@business/logger'
 
 export interface IUpdateBusinessPasswordDeps {
   findBusinessById: IBusinessRepository['findById']
