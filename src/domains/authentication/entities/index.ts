@@ -1,7 +1,10 @@
+import { IBusiness } from '@business/entities'
+
 export interface IAuth {
   id: string
   key: string
   businessId: string
+  business?: IBusiness
   createdAt: Date|number
   updatedAt: Date|number
 }

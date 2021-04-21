@@ -10,6 +10,8 @@ export const makeRepoCreateOne = (
 ) => async (businessId: string, key: string) => {
   try {
     const apiKeyData = makeAuth({ id: nanoid(), businessId, key }) as any
+    delete apiKeyData.businessId
+
     const apiKey = await db.authentication.create({
       data: {
         ...apiKeyData,

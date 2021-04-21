@@ -1,3 +1,3 @@
 import { nanoid } from 'nanoid'
 
-export const keyGenerator = () => `$namand__${nanoid(60)}`
+export const keyGenerator = () => `namand__${nanoid(60)}`
