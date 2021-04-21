@@ -19,6 +19,9 @@ import {
   makeUpdateBusiness,
   makeUpdateBusinessPassword,
 } from '@business/useCases'
+import { createApiKey } from '@authentication/index'
+
+export { IBusiness } from '@business/entities'
 
 const businessRepoFindById = makeFindById(db)
 const businessRepoFindBySlug = makeFindBySlug(db)
@@ -36,6 +39,7 @@ export const businessService = {
     createNewBusiness: businessRepoCreateOne,
     hashGenerator,
     slugGenerator,
+    createApiKey,
   }),
   updateOne: makeUpdateBusiness({
     findBusinessByEmail: businessRepoFindByEmail,
