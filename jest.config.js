@@ -28,6 +28,7 @@ module.exports = {
     '@authentication/(.*)': '<rootDir>/src/domains/authentication/$1',
     '@staffs/(.*)': '<rootDir>/src/domains/staffs/$1',
     '@appointments/(.*)': '<rootDir>/src/domains/appointments/$1',
+    '@delivery/(.*)': '<rootDir>/src/delivery/$1',
     '@httpDelivery/(.*)': '<rootDir>/src/delivery/http/$1',
   },
 }

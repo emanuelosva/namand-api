@@ -34,6 +34,7 @@
       "@authentication/*": ["domains/authentication/*"],
       "@staffs/*": ["domains/staffs/*"],
       "@appointments/*": ["domains/appointments/*"],
+      "@delivery/*": ["delivery/*"],
       "@httpDelivery/*": ["delivery/http/*"]
     },
     "esModuleInterop": true,                        /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
