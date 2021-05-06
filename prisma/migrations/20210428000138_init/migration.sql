@@ -63,7 +63,7 @@ CREATE TABLE "TimeOff" (
 CREATE TABLE "Agenda" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "staffId" TEXT NOT NULL,
-    "timezone" DATETIME NOT NULL,
+    "timezone" TEXT NOT NULL,
     "slotSize" INTEGER NOT NULL,
     "advanceBookingMinutes" INTEGER NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

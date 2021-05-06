@@ -83,7 +83,7 @@ model TimeOff {
 model Agenda {
   id                    String    @id @default(uuid())
   staffId               String
-  timezone              DateTime
+  timezone              String
   slotSize              Int
   advanceBookingMinutes Int
   workingPlan           DayPlan[]
